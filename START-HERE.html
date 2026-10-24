@@ -1,0 +1,3094 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta content="#0c0d12" name="theme-color"/>
+  <meta content="Dhrut Patel — software developer exploring interfaces, backend systems and AI." name="description"/>
+  <title>
+   Dhrut Patel — Developer / Builder
+  </title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200;300;400;500;600;700;800&amp;family=DM+Mono:wght@400;500&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+/* Colors and fonts live here. Change these variables to give the whole site a different feel. */
+:root {
+    --ink: #280d28;
+    --paper: #e8e8e2;
+    --gold: #edab00;
+    --pink: #b29aaa;
+    --line: #280d2826;
+    --mono: 'DM Mono', monospace;
+    --sans: 'Space Grotesk', Arial, sans-serif
+}
+
+* {
+    box-sizing: border-box
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 16px/1.55 var(--sans)
+}
+
+a {
+    color: inherit;
+    text-decoration: none
+}
+
+button {
+    font: inherit;
+    cursor: pointer
+}
+
+a,
+button {
+    -webkit-tap-highlight-color: transparent
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 6px
+}
+
+::selection {
+    background: var(--gold);
+    color: var(--ink)
+}
+
+.skip {
+    position: fixed;
+    top: -100px;
+    background: var(--gold);
+    padding: 10px;
+    z-index: 99
+}
+
+.skip:focus {
+    top: 5px
+}
+
+.progress {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 3px;
+    background: var(--gold);
+    z-index: 30
+}
+
+/* Header and navigation: the name stays on the left, with useful links alongside it. */
+header {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5vw;
+    border-bottom: 1px solid var(--line)
+}
+
+.wordmark {
+    font-size: 31px;
+    letter-spacing: -2px;
+    font-weight: 700
+}
+
+.wordmark span {
+    font: 11px var(--mono);
+    vertical-align: top;
+    display: inline-block;
+    margin-top: 8px;
+    margin-left: 5px
+}
+
+nav {
+    display: flex;
+    gap: 36px;
+    font-size: 13px
+}
+
+nav sup {
+    font: 9px var(--mono)
+}
+
+.hello {
+    font-size: 13px;
+    border-bottom: 1px solid;
+    padding-bottom: 4px
+}
+
+/* The opening section uses oversized type and a canvas illustration. */
+.hero {
+    padding: 35px 5vw 45px;
+    overflow: hidden
+}
+
+.hero-meta,
+.contact-meta {
+    display: flex;
+    justify-content: space-between;
+    font: 10px var(--mono);
+    letter-spacing: 1px
+}
+
+.hero-meta i {
+    display: inline-block;
+    background: var(--gold);
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    margin-right: 8px
+}
+
+.hero-title {
+    position: relative;
+    margin-top: 65px;
+    isolation: isolate
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(70px, 11.8vw, 185px);
+    letter-spacing: -.085em;
+    line-height: .92;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+    pointer-events: none
+}
+
+h1>span {
+    display: block
+}
+
+.outline {
+    -webkit-text-stroke: 1.5px var(--ink);
+    color: transparent;
+    position: relative
+}
+
+.period {
+    color: var(--gold);
+    -webkit-text-stroke: 0
+}
+
+#sculpture {
+    position: absolute;
+    right: 3%;
+    top: -80px;
+    width: 43%;
+    height: 430px;
+    z-index: 1;
+    opacity: .9
+}
+
+.orbit-label {
+    position: absolute;
+    right: 0;
+    top: -32px;
+    font: 9px var(--mono);
+    letter-spacing: 2px;
+    z-index: 3
+}
+
+.hero-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-top: 60px;
+    gap: 20px
+}
+
+.hero-bottom p {
+    font-size: 14px;
+    margin: 0;
+    max-width: 360px
+}
+
+.hero-bottom .hero-side {
+    text-align: right;
+    font: 10px/1.8 var(--mono)
+}
+
+.round-link {
+    width: 70px;
+    height: 70px;
+    border: 1px solid var(--ink);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 30px;
+    transition: .3s
+}
+
+.round-link:hover {
+    background: var(--ink);
+    color: var(--paper);
+    transform: rotate(-30deg)
+}
+
+/* This repeating line adds movement between the intro and the projects. */
+.ticker {
+    background: var(--ink);
+    color: var(--paper);
+    overflow: hidden;
+    padding: 15px 0;
+    font: 12px var(--mono);
+    letter-spacing: 3px
+}
+
+.ticker>div {
+    white-space: nowrap;
+    width: max-content;
+    animation: marquee 35s linear infinite
+}
+
+.ticker span {
+    color: var(--gold);
+    margin: 0 35px
+}
+
+/* Shared spacing keeps the main sections consistent. */
+.section {
+    padding: 100px 5vw
+}
+
+.section-head {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    align-items: start;
+    gap: 30px;
+    margin-bottom: 55px
+}
+
+.eyebrow {
+    font: 10px/1.8 var(--mono);
+    letter-spacing: 1px
+}
+
+h2 {
+    font-size: clamp(40px, 5.4vw, 80px);
+    letter-spacing: -.065em;
+    line-height: 1.02;
+    font-weight: 500;
+    margin: 0
+}
+
+h2 em {
+    font-family: Georgia, serif;
+    font-weight: 400
+}
+
+p {
+    margin-top: 0
+}
+
+.section-head>p {
+    font-size: 13px;
+    align-self: end;
+    justify-self: end;
+    margin: 0
+}
+
+/* Project layouts: each showcase has an illustration, description, and links. */
+.project {
+    margin-bottom: 65px
+}
+
+.project-visual {
+    position: relative;
+    border-radius: 3px;
+    min-height: 460px;
+    display: grid;
+    place-items: center;
+    overflow: hidden
+}
+
+/* A custom mock browser presents the salon website visually. */
+.salon {
+    background: #c4b3a4;
+    padding: 65px 13%
+}
+
+.mock-browser {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px #280d2830;
+    transform: rotate(-3deg);
+    transition: transform .6s
+}
+
+.project:hover .mock-browser {
+    transform: rotate(0deg) translateY(-5px)
+}
+
+.browser-bar {
+    padding: 10px 14px;
+    background: #f0e7d6;
+    display: flex;
+    justify-content: space-between;
+    font: 8px var(--mono);
+    color: #473626
+}
+
+.salon-inner {
+    position: relative;
+    background: #faefdb;
+    padding: 25px 35px 35px;
+    overflow: hidden;
+    color: #4a301e
+}
+
+.salon-nav {
+    font-size: 11px;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 1
+}
+
+.salon-nav span {
+    float: right;
+    font-size: 7px
+}
+
+.sun {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: #e8a44c;
+    right: 25px;
+    top: 75px;
+    box-shadow: 0 0 0 25px #e8a44c22, 0 0 0 50px #e8a44c12
+}
+
+.salon-inner>p {
+    font: 8px var(--mono);
+    margin: 55px 0 10px;
+    position: relative
+}
+
+.salon-inner h3 {
+    font-size: 58px;
+    letter-spacing: -3px;
+    line-height: .95;
+    font-weight: 400;
+    position: relative;
+    margin: 0 0 30px
+}
+
+.salon-inner em {
+    font-family: Georgia, serif
+}
+
+.salon-pill {
+    font: 8px var(--mono);
+    border: 1px solid;
+    width: max-content;
+    padding: 10px;
+    position: relative
+}
+
+.visual-caption {
+    position: absolute;
+    bottom: 17px;
+    left: 24px;
+    font: 8px var(--mono);
+    letter-spacing: 1px;
+    opacity: .7
+}
+
+.project-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 35px;
+    padding-top: 25px
+}
+
+.project-info h3 {
+    font-size: 28px;
+    letter-spacing: -1px;
+    margin: 8px 0
+}
+
+.project-info p {
+    max-width: 560px;
+    font-size: 13px;
+    opacity: .75;
+    line-height: 1.8
+}
+
+.project-actions {
+    display: flex;
+    gap: 20px;
+    align-items: start;
+    flex-wrap: wrap;
+    justify-content: end;
+    padding-top: 8px;
+    font: 11px var(--mono);
+    flex-shrink: 0
+}
+
+.detail {
+    background: none;
+    border: 0;
+    padding: 0;
+    color: inherit;
+    font: inherit
+}
+
+.project-actions a,
+.detail {
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 5px
+}
+
+/* This is decorative chat artwork, not an interactive AI chat service. */
+.chat {
+    background: var(--ink);
+    padding: 50px;
+    color: var(--paper)
+}
+
+.chat-window {
+    max-width: 640px;
+    width: 80%;
+    border: 1px solid #ffffff27;
+    padding: 25px;
+    background: linear-gradient(135deg, #ffffff08, transparent);
+    transform: rotate(2deg);
+    transition: .6s
+}
+
+.project:hover .chat-window {
+    transform: rotate(0)
+}
+
+.chat-top {
+    font: 11px var(--mono);
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #ffffff22
+}
+
+.chat-top span {
+    color: var(--gold);
+    font-size: 25px
+}
+
+.chat-message {
+    padding: 18px 20px;
+    margin-top: 20px;
+    font-size: 14px
+}
+
+.user {
+    background: #ffffff10;
+    width: max-content;
+    max-width: 90%;
+    margin-left: auto;
+    border-radius: 16px 16px 0 16px
+}
+
+.bot span {
+    color: var(--gold);
+    font: 9px var(--mono)
+}
+
+.bot p {
+    font-size: 25px;
+    line-height: 1.3;
+    margin: 14px 0
+}
+
+.typing {
+    display: flex;
+    gap: 5px
+}
+
+.typing i {
+    width: 5px;
+    height: 5px;
+    background: var(--gold);
+    border-radius: 50%;
+    animation: blink 1.5s infinite
+}
+
+.typing i:nth-child(2) {
+    animation-delay: .2s
+}
+
+.typing i:nth-child(3) {
+    animation-delay: .4s
+}
+
+.chat-input {
+    border: 1px solid #ffffff22;
+    padding: 12px 15px;
+    margin-top: 20px;
+    font-size: 10px;
+    opacity: .7
+}
+
+.chat-input span {
+    float: right
+}
+
+/* The Java and Python projects sit side by side on wider screens. */
+.small-projects {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px
+}
+
+.small-projects .project-info {
+    display: block
+}
+
+.small-projects .project-actions {
+    justify-content: start
+}
+
+.student {
+    background: #c4c6d0;
+    padding: 40px
+}
+
+.student-ui {
+    width: 100%;
+    max-width: 400px;
+    background: #ecece7;
+    padding: 25px;
+    box-shadow: 12px 12px 0 #280d2813
+}
+
+.student-top {
+    font: 9px var(--mono);
+    display: flex;
+    justify-content: space-between
+}
+
+.student-title {
+    font-size: 48px;
+    letter-spacing: -3px;
+    line-height: 1;
+    margin: 35px 0 30px
+}
+
+.student-title em {
+    font-family: Georgia, serif
+}
+
+.record {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--line);
+    padding: 13px 0;
+    font: 9px var(--mono)
+}
+
+.expense {
+    background: var(--gold);
+    padding: 40px
+}
+
+.expense-ui {
+    width: 100%;
+    max-width: 400px
+}
+
+.expense-ui h3 {
+    font-size: 45px;
+    line-height: 1;
+    letter-spacing: -2px;
+    font-weight: 400;
+    margin: 40px 0 30px
+}
+
+.expense-ui em {
+    font-family: Georgia, serif
+}
+
+.bars {
+    height: 120px;
+    display: flex;
+    gap: 12px;
+    align-items: end;
+    border-bottom: 1px solid var(--ink)
+}
+
+.bars i {
+    flex: 1;
+    background: var(--ink);
+    height: 50%;
+    border-radius: 3px 3px 0 0;
+    transition: transform .3s;
+    transform-origin: bottom
+}
+
+.bars i:nth-child(2n) {
+    height: 85%
+}
+
+.bars i:nth-child(3n) {
+    height: 35%
+}
+
+.bars i:nth-child(5) {
+    height: 100%
+}
+
+.project:hover .bars i {
+    transform: scaleY(.85)
+}
+
+.expense-label {
+    font: 8px var(--mono);
+    margin-top: 15px
+}
+
+.all-work {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--line);
+    padding-top: 25px;
+    font-size: 16px
+}
+
+.all-work span:last-child {
+    font: 11px var(--mono)
+}
+
+/* The darker about section gives the page a change of pace. */
+.about {
+    background: var(--ink);
+    color: var(--paper)
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 90px;
+    margin-top: 55px
+}
+
+.about h2 {
+    font-size: clamp(60px, 7vw, 110px)
+}
+
+.about h2 em {
+    color: var(--gold)
+}
+
+.about-copy p {
+    font-size: 14px;
+    color: #d3c5cf;
+    line-height: 1.9
+}
+
+.about-copy .large {
+    font-size: 26px;
+    color: var(--paper);
+    line-height: 1.4;
+    letter-spacing: -.7px
+}
+
+.about-stats {
+    display: flex;
+    gap: 35px;
+    padding: 30px 0;
+    border-top: 1px solid #ffffff22;
+    margin-top: 30px
+}
+
+.about-stats strong {
+    display: block;
+    font-size: 32px;
+    letter-spacing: -1px;
+    color: var(--gold);
+    font-weight: 400
+}
+
+.about-stats span {
+    display: block;
+    font: 8px/1.7 var(--mono)
+}
+
+.text-link {
+    display: inline-block;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 7px;
+    font-size: 12px
+}
+
+.toolkit {
+    margin-top: 80px;
+    padding-top: 25px;
+    border-top: 1px solid #ffffff22
+}
+
+.toolkit p {
+    font-size: clamp(22px, 3vw, 38px);
+    line-height: 1.8;
+    word-spacing: 10px;
+    color: #b49bad;
+    font-weight: 400;
+    margin: 20px 0 0
+}
+
+.toolkit b {
+    color: var(--paper);
+    font-weight: 400
+}
+
+/* Experience rows keep dates, roles, and descriptions easy to scan. */
+.journey .section-head {
+    grid-template-columns: 1fr 2.5fr
+}
+
+.job {
+    display: grid;
+    grid-template-columns: 1fr 2fr .3fr;
+    gap: 35px;
+    padding: 35px 0;
+    border-top: 1px solid var(--line)
+}
+
+.job-date {
+    font: 10px var(--mono);
+    padding-top: 10px
+}
+
+.job h3 {
+    font-size: 34px;
+    letter-spacing: -1.5px;
+    font-weight: 500;
+    margin: 0 0 8px
+}
+
+.job div>span {
+    font: 10px var(--mono)
+}
+
+.job p {
+    font-size: 13px;
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 20px 0 0
+}
+
+.job-index {
+    text-align: right;
+    font: 12px var(--mono)
+}
+
+.learning {
+    display: flex;
+    gap: 70px;
+    border-top: 1px solid var(--line);
+    margin-top: 25px;
+    padding-top: 25px
+}
+
+.learning>span {
+    font: 9px var(--mono)
+}
+
+.learning p {
+    font-size: 13px
+}
+
+/* The marigold contact section is the final invitation to get in touch. */
+.contact {
+    background: var(--gold);
+    padding-top: 50px;
+    padding-bottom: 50px;
+    overflow: hidden
+}
+
+.contact-meta {
+    font-size: 9px
+}
+
+.contact h2 {
+    font-size: clamp(55px, 10vw, 155px);
+    letter-spacing: -.075em;
+    margin: 65px 0 45px;
+    line-height: .95
+}
+
+.contact h2>a {
+    display: block
+}
+
+.contact h2>a>span {
+    display: inline-block;
+    transition: transform .3s
+}
+
+.contact h2>a:hover>span {
+    transform: translate(10px, -10px)
+}
+
+.contact h2 em {
+    display: block;
+    font-size: .65em;
+    letter-spacing: -.05em;
+    margin-top: 12px
+}
+
+.contact-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #280d2855;
+    padding-top: 25px;
+    font-size: 14px
+}
+
+.contact-bottom button {
+    background: none;
+    border: 0;
+    border-bottom: 1px solid;
+    font: 11px var(--mono);
+    padding: 4px 0;
+    color: inherit
+}
+
+footer {
+    padding: 35px 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px
+}
+
+footer>span {
+    font: 8px var(--mono)
+}
+
+footer>div {
+    display: flex;
+    gap: 20px;
+    font-size: 11px
+}
+
+/* The project detail dialog sits above the page with a dimmed backdrop. */
+dialog {
+    border: 0;
+    border-radius: 8px;
+    background: var(--paper);
+    color: var(--ink);
+    padding: 50px;
+    width: min(650px, 90vw);
+    max-height: 85vh
+}
+
+dialog::backdrop {
+    background: #150715c9;
+    backdrop-filter: blur(9px)
+}
+
+dialog h2 {
+    font-size: 42px;
+    margin: 25px 0
+}
+
+dialog h3 {
+    font-size: 15px;
+    margin-top: 30px
+}
+
+dialog p,
+dialog li {
+    font-size: 14px;
+    line-height: 1.8
+}
+
+dialog ul {
+    padding-left: 18px
+}
+
+dialog .dialog-note {
+    font-size: 11px;
+    opacity: .65;
+    border-top: 1px solid var(--line);
+    padding-top: 15px;
+    margin-top: 25px
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 32px;
+    background: none;
+    border: 0;
+    color: inherit
+}
+
+#toast {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 12px;
+    opacity: 0;
+    pointer-events: none;
+    border-radius: 30px;
+    transition: opacity .2s
+}
+
+#toast.show {
+    opacity: 1
+}
+
+.motion-ready .project-visual {
+    transition: opacity .8s, translate .8s
+}
+
+.motion-ready .project-visual.offscreen {
+    opacity: 0;
+    translate: 0 35px
+}
+
+@keyframes marquee {
+    to {
+        transform: translateX(-33.333%)
+    }
+}
+
+@keyframes blink {
+    50% {
+        opacity: .2;
+        transform: translateY(-3px)
+    }
+}
+
+@media(min-width:1600px) {
+
+    main,
+    header,
+    footer {
+        max-width: 1800px;
+        margin: auto
+    }
+}
+
+/* Tablet adjustments: stack crowded elements before they become hard to read. */
+@media(max-width:1000px) {
+    .project-info {
+        display: block
+    }
+
+    .project-actions {
+        justify-content: start
+    }
+
+    .section-head {
+        grid-template-columns: 1fr 2fr
+    }
+
+    .section-head>p {
+        grid-column: 2;
+        justify-self: start
+    }
+
+    .about-grid {
+        gap: 40px
+    }
+
+    .project-visual {
+        min-height: 380px
+    }
+
+    .small-projects .project-visual {
+        padding: 30px;
+        min-height: 400px
+    }
+
+    #sculpture {
+        height: 320px;
+        top: -50px
+    }
+
+    .hero-title {
+        margin-top: 85px
+    }
+
+    .contact-meta>span:last-child {
+        max-width: 190px;
+        text-align: right
+    }
+}
+
+/* Phone adjustments: use one column and smaller type to avoid horizontal scrolling. */
+@media(max-width:650px) {
+    header {
+        height: 75px
+    }
+
+    nav {
+        gap: 16px;
+        font-size: 11px
+    }
+
+    .hello {
+        display: none
+    }
+
+    .hero {
+        padding-top: 25px
+    }
+
+    .hero-meta {
+        font-size: 8px;
+        letter-spacing: 0
+    }
+
+    .hero-meta>span:last-child {
+        max-width: 120px;
+        text-align: right
+    }
+
+    .hero-title {
+        margin-top: 110px
+    }
+
+    h1 {
+        font-size: 12vw;
+        -webkit-text-stroke-width: 1px
+    }
+
+    #sculpture {
+        width: 75%;
+        right: 0;
+        height: 230px;
+        top: -105px;
+        opacity: .7
+    }
+
+    .orbit-label {
+        font-size: 6px;
+        top: -65px;
+        right: auto;
+        left: 0;
+        max-width: 100px;
+        line-height: 1.8
+    }
+
+    .hero-bottom {
+        margin-top: 40px;
+        align-items: center
+    }
+
+    .hero-bottom p {
+        font-size: 11px
+    }
+
+    .hero-side {
+        display: none
+    }
+
+    .round-link {
+        height: 48px;
+        width: 48px;
+        flex-shrink: 0;
+        font-size: 23px
+    }
+
+    .section {
+        padding: 65px 6vw
+    }
+
+    .section-head,
+    .journey .section-head {
+        display: block
+    }
+
+    .section-head h2 {
+        margin: 25px 0
+    }
+
+    .section-head>p {
+        font-size: 12px
+    }
+
+    .project-visual {
+        min-height: 330px
+    }
+
+    .salon {
+        padding: 40px 7%
+    }
+
+    .salon-inner {
+        padding: 20px
+    }
+
+    .salon-nav {
+        font-size: 8px
+    }
+
+    .salon-nav span {
+        display: none
+    }
+
+    .salon-inner>p {
+        margin-top: 40px
+    }
+
+    .salon-inner h3 {
+        font-size: 43px
+    }
+
+    .sun {
+        height: 150px;
+        width: 150px;
+        right: 5px;
+        top: 75px
+    }
+
+    .browser-bar {
+        font-size: 6px;
+        padding: 8px
+    }
+
+    .project-info h3 {
+        font-size: 25px
+    }
+
+    .project-info p {
+        font-size: 12px
+    }
+
+    .project {
+        margin-bottom: 45px
+    }
+
+    .visual-caption {
+        font-size: 6px;
+        left: 15px
+    }
+
+    .chat {
+        padding: 35px 20px
+    }
+
+    .chat-window {
+        width: 100%;
+        padding: 20px
+    }
+
+    .chat-message {
+        font-size: 11px;
+        padding: 15px
+    }
+
+    .bot p {
+        font-size: 22px
+    }
+
+    .small-projects {
+        grid-template-columns: 1fr;
+        gap: 0
+    }
+
+    .small-projects .project-visual {
+        min-height: 370px
+    }
+
+    .all-work {
+        gap: 20px;
+        font-size: 13px
+    }
+
+    .all-work span:last-child {
+        font-size: 9px;
+        text-align: right
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        margin-top: 35px
+    }
+
+    .about h2 {
+        font-size: 65px
+    }
+
+    .about-copy .large {
+        font-size: 23px
+    }
+
+    .about-stats {
+        gap: 25px
+    }
+
+    .about-stats strong {
+        font-size: 28px
+    }
+
+    .toolkit {
+        margin-top: 45px
+    }
+
+    .toolkit p {
+        word-spacing: 4px
+    }
+
+    .job {
+        grid-template-columns: 1fr;
+        gap: 15px
+    }
+
+    .job-index {
+        display: none
+    }
+
+    .job h3 {
+        font-size: 30px
+    }
+
+    .learning {
+        display: block
+    }
+
+    .learning p {
+        margin-top: 20px
+    }
+
+    .contact-meta {
+        font-size: 7px;
+        gap: 20px
+    }
+
+    .contact h2 {
+        font-size: 11.4vw;
+        margin-top: 55px
+    }
+
+    .contact-bottom {
+        font-size: 11px;
+        gap: 15px
+    }
+
+    .contact-bottom button {
+        font-size: 9px
+    }
+
+    footer {
+        flex-wrap: wrap
+    }
+
+    footer>div {
+        width: 100%;
+        justify-content: space-between
+    }
+
+    dialog {
+        padding: 35px 25px
+    }
+
+    dialog h2 {
+        font-size: 32px
+    }
+}
+
+/* Respect visitors who prefer less motion. */
+@media(prefers-reduced-motion:reduce) {
+    html {
+        scroll-behavior: auto
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important
+    }
+
+    .motion-ready .project-visual.offscreen {
+        opacity: 1;
+        translate: none
+    }
+}
+
+/* Opening sequence; fails open if scripts are unavailable. */
+.loader {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: var(--ink);
+    color: var(--paper);
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 35px 5vw;
+    overflow: hidden;
+    transition: clip-path .9s cubic-bezier(.76, 0, .24, 1), visibility .9s;
+    clip-path: inset(0 0 0 0)
+}
+
+.loader.active {
+    display: flex
+}
+
+.loader.finished {
+    clip-path: inset(0 0 100% 0);
+    visibility: hidden;
+    pointer-events: none
+}
+
+.intro-playing {
+    overflow: hidden
+}
+
+.loader-top,
+.loader-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font: 10px var(--mono);
+    letter-spacing: 1px;
+    gap: 20px
+}
+
+.loader-top button {
+    border: 0;
+    background: none;
+    color: var(--paper);
+    font: 10px var(--mono);
+    padding: 10px;
+    cursor: pointer
+}
+
+.loader-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative
+}
+
+.loader-word {
+    font: italic clamp(100px, 18vw, 260px)/1 Georgia, serif;
+    letter-spacing: -.08em;
+    animation: helloIn .85s cubic-bezier(.2, .8, .2, 1) both
+}
+
+.loader-word>span {
+    color: var(--gold)
+}
+
+.loader-sub {
+    font: 9px var(--mono);
+    letter-spacing: 2px;
+    margin-top: 35px;
+    color: var(--pink)
+}
+
+.loader-star {
+    position: absolute;
+    right: 20%;
+    top: -35%;
+    color: var(--gold);
+    font-size: 65px;
+    animation: loaderSpin 5s linear infinite
+}
+
+.loader-bottom>span:last-child {
+    font: clamp(40px, 7vw, 90px)/1 var(--sans);
+    letter-spacing: -4px;
+    color: var(--gold)
+}
+
+.loader-track {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #ffffff12
+}
+
+.loader-track i {
+    display: block;
+    width: 0;
+    height: 100%;
+    background: var(--gold)
+}
+
+@keyframes helloIn {
+    from {
+        opacity: 0;
+        transform: translateY(45px) rotate(-5deg);
+        filter: blur(12px)
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+        filter: blur(0)
+    }
+}
+
+@keyframes loaderSpin {
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+@media(max-width:650px) {
+    .loader {
+        padding: 25px 6vw
+    }
+
+    .loader-top,
+    .loader-bottom {
+        font-size: 8px
+    }
+
+    .loader-sub {
+        font-size: 7px;
+        letter-spacing: 1px
+    }
+
+    .loader-star {
+        right: 5%;
+        font-size: 45px;
+        top: -60%
+    }
+
+    .loader-bottom>span:first-child {
+        max-width: 150px
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    .loader {
+        display: none !important
+    }
+}
+
+/* A persistent replay control makes the opening animation discoverable. */
+.replay-intro {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 40;
+    border: 1px solid #ffffff50;
+    border-radius: 30px;
+    padding: 12px 18px;
+    background: #280d28;
+    color: #e8e8e2;
+    font: 11px var(--mono);
+    box-shadow: 0 8px 30px #0002;
+}
+
+.loader.active {
+    display: flex !important;
+}
+
+.loader.finished {
+    pointer-events: none;
+}
+
+.loader-word {
+    position: relative;
+}
+
+.loader-center::before {
+    content: "";
+    position: absolute;
+    width: min(65vw, 700px);
+    height: min(65vw, 700px);
+    top: 50%;
+    left: 50%;
+    border: 1px solid #edab0035;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 0 40px #edab0008, 0 0 0 80px #edab0005;
+}
+
+@keyframes title-arrival {
+    from {
+        transform: translateY(110%) rotate(3deg);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0) rotate(0);
+        opacity: 1;
+    }
+}
+
+@keyframes float-artwork {
+
+    0%,
+    100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -12px;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .intro-complete h1>span {
+        animation: title-arrival 1.15s cubic-bezier(.16, 1, .3, 1) both;
+    }
+
+    .intro-complete h1>span:nth-child(2) {
+        animation-delay: .15s;
+    }
+
+    .mock-browser,
+    .chat-window {
+        animation: float-artwork 7s ease-in-out infinite;
+    }
+
+    .chat-window {
+        animation-delay: -3s;
+    }
+
+    .loader-word {
+        animation: helloIn .9s both;
+    }
+
+    .loader-star {
+        animation: loaderSpin 4s linear infinite;
+    }
+}
+
+/* Cinematic edition: dark surfaces and a red light inspired by the new recording. */
+:root {
+    --ink: #f1f0f2;
+    --paper: #0c0d12;
+    --gold: #ff493f;
+    --pink: #9795a5;
+    --line: #ffffff20;
+}
+
+body {
+    background: #0c0d12;
+    color: #f1f0f2;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 15;
+    opacity: .12;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' opacity='.3' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+header {
+    border-bottom: 0;
+    height: 85px;
+    position: absolute;
+    width: 100%;
+    z-index: 20;
+    background: transparent;
+}
+
+.wordmark {
+    font-size: 25px;
+}
+
+.wordmark span {
+    color: #ff493f;
+}
+
+nav {
+    color: #b5b3bd;
+}
+
+.hello {
+    background: #ffffff08;
+    border: 1px solid #ffffff22;
+    border-radius: 30px;
+    padding: 9px 17px;
+    font-size: 11px;
+}
+
+.hero {
+    --glow-x: 75%;
+    --glow-y: 30%;
+    min-height: 100svh;
+    padding: 130px 5vw 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    isolation: isolate;
+    background: radial-gradient(ellipse at 50% 100%, #383d52 0%, #191b27 35%, #0c0d12 75%);
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 30% 38% at var(--glow-x) var(--glow-y), #fa392f42, transparent 75%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.ambient {
+    pointer-events: none;
+    position: absolute;
+    border-radius: 45%;
+    filter: blur(35px);
+    z-index: -1;
+}
+
+.ambient-one {
+    width: 220px;
+    height: 350px;
+    background: #f64635;
+    right: 16%;
+    top: -170px;
+    opacity: .55;
+    transform: rotate(-25deg);
+    animation: drift-light 12s ease-in-out infinite alternate;
+}
+
+.ambient-two {
+    width: 100px;
+    height: 160px;
+    background: #ff3028;
+    left: 15%;
+    top: 42%;
+    opacity: .18;
+    animation: drift-light 9s ease-in-out infinite alternate-reverse;
+}
+
+.hero-meta {
+    color: #c2c0ca;
+    font-size: 9px;
+}
+
+.name-stage {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 50px 0 30px;
+}
+
+.name-caption {
+    font: 8px var(--mono);
+    letter-spacing: 3px;
+    color: #92919f;
+    margin-bottom: 22px;
+}
+
+.kinetic-name {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-size: clamp(90px, 15vw, 235px);
+    letter-spacing: .04em;
+    font-weight: 300;
+    line-height: .95;
+    display: flex;
+    justify-content: space-between;
+    gap: 5vw;
+    margin: 0;
+}
+
+.kinetic-name>span {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    gap: 1vw;
+}
+
+.kinetic-name i {
+    display: inline-block;
+    font-style: normal;
+    width: .6em;
+    text-align: center;
+    transform-origin: center;
+    will-change: transform;
+}
+
+.hero-bottom {
+    margin-top: 20px;
+    align-items: center;
+}
+
+.hero-bottom p {
+    color: #c5c5d0;
+    font-size: 13px;
+}
+
+.hero-bottom .hero-side {
+    color: #aaa9b8;
+    font: 8px var(--mono);
+}
+
+.explore-pill {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    background: #ff493f;
+    color: white;
+    border-radius: 30px;
+    padding: 13px 21px;
+    font-size: 12px;
+    box-shadow: 0 0 35px #ff493f25;
+    transition: transform .3s;
+}
+
+.explore-pill:hover {
+    transform: translateY(-4px);
+}
+
+.hero-foot {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 65px;
+    font: 8px var(--mono);
+    letter-spacing: 1px;
+    color: #a09fad;
+}
+
+.philosophy {
+    min-height: 620px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 90px 6vw;
+    background: radial-gradient(ellipse at 50% 45%, #3d1824, #0c0d12 65%);
+}
+
+.philosophy h2 {
+    font-size: clamp(35px, 6vw, 90px);
+    letter-spacing: -.04em;
+    z-index: 2;
+    margin: 55px 0 30px;
+}
+
+.philosophy h2 em {
+    font: inherit;
+    color: #ff5b52;
+}
+
+.philosophy>p {
+    font-size: 20px;
+    line-height: 1.65;
+    color: #b4b1bd;
+    z-index: 2;
+}
+
+.philosophy-note {
+    font: 8px var(--mono);
+    color: #797584;
+    margin-top: 30px;
+}
+
+.philosophy-orbit {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    max-width: 1100px;
+    align-items: center;
+    pointer-events: none;
+}
+
+.philosophy-orbit>span {
+    font: 280px/1 Georgia, serif;
+    color: #ff493f45;
+    text-shadow: 0 0 70px #ff493f70;
+    animation: breathe-bracket 6s ease-in-out infinite;
+}
+
+.philosophy-orbit>span:last-child {
+    animation-delay: -3s;
+}
+
+.philosophy-orbit i {
+    width: 140px;
+    height: 140px;
+    border: 1px solid #ff493f20;
+    border-radius: 50%;
+}
+
+.work {
+    background: #0c0d12;
+}
+
+.work>.project {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 35px;
+    align-items: center;
+}
+
+.work>.project:nth-of-type(2) {
+    direction: rtl;
+}
+
+.work>.project:nth-of-type(2)>* {
+    direction: ltr;
+}
+
+.work>.project .project-info {
+    display: block;
+}
+
+.project-info p {
+    color: #aaa8b5;
+    opacity: 1;
+}
+
+.project-actions {
+    justify-content: start;
+    margin-top: 25px;
+}
+
+.project-visual {
+    border: 1px solid #ffffff15;
+    border-radius: 12px;
+    transition: transform .35s;
+}
+
+.salon {
+    background: #1e1b25;
+    padding: 40px 8%;
+}
+
+.chat {
+    background: #141724;
+}
+
+.chat-window {
+    width: 95%;
+}
+
+.chat-message {
+    color: #f1f0f2;
+}
+
+.student {
+    background: #1c202e;
+}
+
+.student-ui {
+    color: #171923;
+    background: #dedfe5;
+}
+
+.expense {
+    background: #281c27;
+}
+
+.expense-ui {
+    color: #f0e5e9;
+}
+
+.bars {
+    border-color: #8f667b;
+}
+
+.bars i {
+    background: linear-gradient(#ff776b, #b93850);
+}
+
+.about {
+    background: #11131c;
+}
+
+.about h2 em {
+    color: #ff5b52;
+}
+
+.about-copy p {
+    color: #a7a6b5;
+}
+
+.about-copy .large {
+    color: #e8e8ed;
+}
+
+.toolkit b {
+    color: #edeaf0;
+}
+
+.journey {
+    background: linear-gradient(#0c0d12, #181b27);
+}
+
+.job h3 {
+    font-size: 29px;
+}
+
+.job-index,
+.job-date,
+.job div>span {
+    color: #9a95a8;
+}
+
+.job p {
+    color: #bbb8c7;
+}
+
+.contact {
+    background: radial-gradient(ellipse at 80% 100%, #75312f, #242735 50%, #11131c);
+    color: #f1f0f2;
+    min-height: 600px;
+}
+
+.contact h2 {
+    font-size: clamp(55px, 8vw, 125px);
+}
+
+.contact h2 em {
+    color: #ff6e61;
+}
+
+.contact-bottom {
+    border-color: #ffffff22;
+}
+
+footer {
+    background: #0c0d12;
+}
+
+.loader {
+    background: radial-gradient(ellipse at 50% 100%, #34394e, #12131d 60%);
+}
+
+.loader-center::before {
+    display: none;
+}
+
+.loader-word {
+    font: 9px var(--mono);
+    letter-spacing: 4px;
+    margin-top: 25px;
+}
+
+.loader-center>#loader-count {
+    font: 80px/1 var(--sans);
+    letter-spacing: -5px;
+    color: #f0f0f4;
+}
+
+.loader-star {
+    display: none;
+}
+
+.loader-sub {
+    color: #a3a0b1;
+    font-size: 7px;
+}
+
+.loader-bottom {
+    color: #7e7e90;
+}
+
+.loader-bottom::after {
+    content: "PLEASE WAIT";
+}
+
+.replay-intro {
+    background: #20222e;
+    color: #f1f0f2;
+}
+
+dialog {
+    background: #181b26;
+    color: #f1f0f2;
+    border: 1px solid #ffffff20;
+}
+
+dialog .dialog-note {
+    color: #b5b2c1;
+}
+
+#toast {
+    background: #34303d;
+    color: white;
+}
+
+@keyframes drift-light {
+    from {
+        translate: 0 0;
+        rotate: -15deg;
+    }
+
+    to {
+        translate: -100px 140px;
+        rotate: 20deg;
+    }
+}
+
+@keyframes breathe-bracket {
+
+    0%,
+    100% {
+        transform: translateX(0) scale(.9);
+        opacity: .5;
+    }
+
+    50% {
+        transform: translateX(20px) scale(1.05);
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .intro-complete .kinetic-name>span {
+        animation: title-arrival 1.4s cubic-bezier(.16, 1, .3, 1) both;
+    }
+}
+
+@media (max-width: 1000px) {
+    .work>.project {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .work>.project:nth-of-type(2) {
+        direction: ltr;
+    }
+}
+
+@media (max-width: 650px) {
+    .hero {
+        padding: 115px 6vw 25px;
+        min-height: 90svh;
+    }
+
+    .hero-meta {
+        font-size: 7px;
+    }
+
+    .name-stage {
+        margin: 60px 0;
+    }
+
+    .kinetic-name {
+        flex-direction: column;
+        font-size: 28vw;
+        gap: 10px;
+    }
+
+    .kinetic-name>span {
+        width: 100%;
+    }
+
+    .kinetic-name i {
+        width: .75em;
+    }
+
+    .name-caption {
+        font-size: 6px;
+        letter-spacing: 2px;
+    }
+
+    .hero-bottom {
+        align-items: start;
+        gap: 20px;
+    }
+
+    .hero-bottom p {
+        font-size: 10px;
+    }
+
+    .explore-pill {
+        font-size: 10px;
+        padding: 12px 15px;
+        gap: 12px;
+        flex-shrink: 0;
+    }
+
+    .hero-foot {
+        font-size: 6px;
+        gap: 20px;
+        margin-top: 40px;
+    }
+
+    .philosophy {
+        min-height: 520px;
+    }
+
+    .philosophy-orbit>span {
+        font-size: 150px;
+    }
+
+    .philosophy-orbit i {
+        width: 80px;
+        height: 80px;
+    }
+
+    .philosophy>p {
+        font-size: 17px;
+    }
+
+    .contact {
+        min-height: auto;
+    }
+}
+/* Loader labels stay small; the center counter is the only large number. */
+.loader { color: #f1f0f2; }
+.loader-top button { color: #c1bfcb; }
+.loader-bottom > span:last-child {
+  font: 8px var(--mono);
+  letter-spacing: 1px;
+  color: #9492a2;
+}
+
+/* Keep every letter inside the viewport, including when its width is animated. */
+.kinetic-name { font-size: clamp(80px, 13vw, 210px); gap: 4vw; }
+.kinetic-name > span { min-width: 0; gap: .5vw; }
+.kinetic-name i { flex: 1; width: auto; min-width: 0; }
+@media (max-width: 650px) {
+  .kinetic-name { font-size: 27vw; gap: 14px; }
+}
+
+</style>
+ </head>
+ <body>
+  <!-- Replay the opening any time, so it is easy to see and test. -->
+  <button class="replay-intro" id="replay-intro">
+   ↻ Replay intro
+  </button>
+  <!-- This short opening scene introduces the portfolio. Visitors can skip it, and reduced-motion settings turn it off. -->
+  <div aria-label="Loading portfolio" class="loader" id="loader">
+   <div class="loader-top">
+    <span>
+     DHRUT PATEL / PORTFOLIO
+    </span>
+    <button id="skip-intro">
+     Skip intro ↗
+    </button>
+   </div>
+   <div class="loader-center">
+    <span id="loader-count">
+     000
+    </span>
+    <span aria-hidden="true" class="loader-star">
+     +
+    </span>
+    <span class="loader-word">
+     DHRUT PATEL
+    </span>
+    <span class="loader-sub">
+     DEVELOPER / BUILDER / ALWAYS LEARNING
+    </span>
+   </div>
+   <div class="loader-bottom">
+    <span>
+     INITIALIZING THE EXPERIENCE
+    </span>
+   </div>
+   <div class="loader-track">
+    <i id="loader-fill">
+    </i>
+   </div>
+  </div>
+  <a class="skip" href="#work">
+   Skip to projects
+  </a>
+  <div aria-hidden="true" class="progress">
+  </div>
+  <!-- Keep the main navigation simple so visitors can get straight to the work. -->
+  <header>
+   <a class="wordmark" href="#home">
+    dhrut
+    <span>
+     .
+    </span>
+   </a>
+   <nav aria-label="Main navigation">
+    <a href="#work">
+     Work
+     <sup>
+      04
+     </sup>
+    </a>
+    <a href="#about">
+     About
+    </a>
+    <a href="#experience">
+     Journey
+    </a>
+   </nav>
+   <a class="hello" href="mailto:DhrutPatel277@gmail.com">
+    Let's talk ↗
+   </a>
+  </header>
+  <main>
+   <!-- The hero introduces me. JavaScript draws the animated wire sculpture on the canvas. -->
+   <section class="hero" id="home">
+    <!-- The glow responds to the pointer, while the name changes weight one letter at a time. -->
+    <div aria-hidden="true" class="ambient ambient-one">
+    </div>
+    <div aria-hidden="true" class="ambient ambient-two">
+    </div>
+    <div class="hero-meta">
+     <span>
+      SOFTWARE DEVELOPER &amp; CURIOUS BUILDER
+     </span>
+     <span>
+      AVAILABLE FOR INTERNSHIPS / 2027
+     </span>
+    </div>
+    <div class="name-stage">
+     <p class="name-caption">
+      A FEW LETTERS. A LOT OF CURIOSITY.
+     </p>
+     <h1 aria-label="Dhrut Patel" class="kinetic-name">
+      <span aria-hidden="true" class="name-first">
+       <i>
+        D
+       </i>
+       <i>
+        H
+       </i>
+       <i>
+        R
+       </i>
+       <i>
+        U
+       </i>
+       <i>
+        T
+       </i>
+      </span>
+      <span aria-hidden="true" class="name-last">
+       <i>
+        P
+       </i>
+       <i>
+        A
+       </i>
+       <i>
+        T
+       </i>
+       <i>
+        E
+       </i>
+       <i>
+        L
+       </i>
+      </span>
+     </h1>
+    </div>
+    <div class="hero-bottom">
+     <p>
+      I build interfaces, connect systems,
+      <br/>
+      and follow ideas until they work.
+     </p>
+     <a class="explore-pill" href="#work">
+      Explore my work
+      <span>
+       ↗
+      </span>
+     </a>
+     <span class="hero-side">
+      SCROLL TO DISCOVER ↓
+     </span>
+    </div>
+    <div class="hero-foot">
+     <span>
+      REACT / JAVA / PYTHON / AI
+     </span>
+     <span>
+      UW–GREEN BAY · MAY 2028
+     </span>
+    </div>
+   </section>
+   <section class="philosophy" id="philosophy">
+    <span class="eyebrow">
+     THE WAY I THINK
+    </span>
+    <div aria-hidden="true" class="philosophy-orbit">
+     <span>
+      {
+     </span>
+     <i>
+     </i>
+     <span>
+      }
+     </span>
+    </div>
+    <h2>
+     THE
+     <em>
+      PHILOSOPHY
+     </em>
+    </h2>
+    <p>
+     Make it useful.
+     <br/>
+     Understand the details.
+     <br/>
+     Then make it feel effortless.
+    </p>
+    <span class="philosophy-note">
+     A LITTLE EXPERIMENTATION. A LOT OF INTENTION.
+    </span>
+   </section>
+   <!-- These are my four featured projects. The artwork is illustrative; the links lead to the actual work. -->
+   <section class="work section" id="work">
+    <div class="section-head">
+     <span class="eyebrow">
+      01 / SELECTED WORK
+     </span>
+     <h2>
+      Less talking.
+      <br/>
+      <em>
+       More building.
+      </em>
+     </h2>
+     <p>
+      Four projects. Different problems.
+      <br/>
+      The same curiosity.
+     </p>
+    </div>
+    <article class="project" data-project="tanning">
+     <div class="project-visual salon">
+      <div class="mock-browser">
+       <div class="browser-bar">
+        <span>
+         ● ● ●
+        </span>
+        <span>
+         tanning-tropical.vercel.app
+        </span>
+        <span>
+         ↗
+        </span>
+       </div>
+       <div class="salon-inner">
+        <div class="salon-nav">
+         TANNING TROPICAL
+         <span>
+          SERVICES / CONTACT
+         </span>
+        </div>
+        <div class="sun">
+        </div>
+        <p>
+         YOUR EVERYDAY ESCAPE
+        </p>
+        <h3>
+         A little sun.
+         <br/>
+         A lot of
+         <em>
+          glow.
+         </em>
+        </h3>
+        <div class="salon-pill">
+         A WEBSITE FOR REAL PEOPLE ↗
+        </div>
+       </div>
+      </div>
+      <span class="visual-caption">
+       INTERFACE STUDY / BUSINESS WEBSITE
+      </span>
+     </div>
+     <div class="project-info">
+      <div>
+       <span class="eyebrow">
+        01 / REACT · JAVASCRIPT · VITE
+       </span>
+       <h3>
+        Tanning Tropical
+       </h3>
+       <p>
+        A responsive salon website bringing services, pricing, and contact information together in a clear customer experience.
+       </p>
+      </div>
+      <div class="project-actions">
+       <button class="detail" data-detail="tanning">
+        Inside the project +
+       </button>
+       <a href="https://tanning-tropical.vercel.app" rel="noopener noreferrer" target="_blank">
+        Live site ↗
+       </a>
+       <a href="https://github.com/dhrutpatel277-bot/Tanning-Tropical" rel="noopener noreferrer" target="_blank">
+        GitHub ↗
+       </a>
+      </div>
+     </div>
+    </article>
+    <article class="project" data-project="chat">
+     <div class="project-visual chat">
+      <div class="chat-window">
+       <div class="chat-top">
+        ask / think / explore
+        <span>
+         ✳
+        </span>
+       </div>
+       <div class="chat-message user">
+        What if we made this idea real?
+       </div>
+       <div class="chat-message bot">
+        <span>
+         DP / AI
+        </span>
+        <p>
+         Start with a question.
+         <br/>
+         Build the connection.
+         <br/>
+         Keep the conversation going.
+        </p>
+        <div class="typing">
+         <i>
+         </i>
+         <i>
+         </i>
+         <i>
+         </i>
+        </div>
+       </div>
+       <div class="chat-input">
+        An interface to possibility.
+        <span>
+         ↑
+        </span>
+       </div>
+      </div>
+      <span class="visual-caption">
+       ILLUSTRATIVE INTERFACE / AI CHAT PROJECT
+      </span>
+     </div>
+     <div class="project-info">
+      <div>
+       <span class="eyebrow">
+        02 / JAVASCRIPT · NODE.JS · EXPRESS
+       </span>
+       <h3>
+        A conversation with AI.
+       </h3>
+       <p>
+        A full-stack chat application connecting a conversational interface to an external AI service through REST APIs.
+       </p>
+      </div>
+      <div class="project-actions">
+       <button class="detail" data-detail="chat">
+        Inside the project +
+       </button>
+       <a href="https://github.com/dhrutpatel277-bot" rel="noopener noreferrer" target="_blank">
+        Explore GitHub ↗
+       </a>
+      </div>
+     </div>
+    </article>
+    <div class="small-projects">
+     <article class="project">
+      <div class="project-visual student">
+       <div class="student-ui">
+        <div class="student-top">
+         STUDENT / SYSTEM
+         <span>
+          JAVA
+         </span>
+        </div>
+        <div class="student-title">
+         Everything.
+         <br/>
+         <em>
+          In order.
+         </em>
+        </div>
+        <div class="record">
+         <span>
+          01
+         </span>
+         <span>
+          CREATE / UPDATE
+         </span>
+         <b>
+          ↗
+         </b>
+        </div>
+        <div class="record">
+         <span>
+          02
+         </span>
+         <span>
+          SEARCH / SORT
+         </span>
+         <b>
+          ↗
+         </b>
+        </div>
+        <div class="record">
+         <span>
+          03
+         </span>
+         <span>
+          SAVE / RELOAD
+         </span>
+         <b>
+          ↗
+         </b>
+        </div>
+       </div>
+       <span class="visual-caption">
+        VISUAL CONCEPT / JAVA CONSOLE APPLICATION
+       </span>
+      </div>
+      <div class="project-info">
+       <div>
+        <span class="eyebrow">
+         03 / JAVA · OOP · FILE I/O
+        </span>
+        <h3>
+         Student Management
+        </h3>
+        <p>
+         Student records, GPA management, validation, and persistent storage in one menu-driven application.
+        </p>
+       </div>
+       <div class="project-actions">
+        <button class="detail" data-detail="student">
+         Project details +
+        </button>
+        <a href="https://github.com/dhrutpatel277-bot/student-management-system" rel="noopener noreferrer" target="_blank">
+         GitHub ↗
+        </a>
+       </div>
+      </div>
+     </article>
+     <article class="project">
+      <div class="project-visual expense">
+       <div class="expense-ui">
+        <div class="student-top">
+         EXPENSE / MANAGER
+         <span>
+          PYTHON
+         </span>
+        </div>
+        <h3>
+         Small spends.
+         <br/>
+         <em>
+          Clearer picture.
+         </em>
+        </h3>
+        <div aria-hidden="true" class="bars">
+         <i>
+         </i>
+         <i>
+         </i>
+         <i>
+         </i>
+         <i>
+         </i>
+         <i>
+         </i>
+         <i>
+         </i>
+         <i>
+         </i>
+        </div>
+        <div class="expense-label">
+         RECORD → ORGANIZE → UNDERSTAND
+        </div>
+       </div>
+       <span class="visual-caption">
+        VISUAL CONCEPT / PYTHON EXPENSE TOOL
+       </span>
+      </div>
+      <div class="project-info">
+       <div>
+        <span class="eyebrow">
+         04 / PYTHON · CSV · REPORTING
+        </span>
+        <h3>
+         Personal Expense Manager
+        </h3>
+        <p>
+         A practical tool for recording expenses, reviewing category totals, and keeping transaction history.
+        </p>
+       </div>
+       <div class="project-actions">
+        <button class="detail" data-detail="expense">
+         Project details +
+        </button>
+        <a href="https://github.com/dhrutpatel277-bot/ExpenseManager" rel="noopener noreferrer" target="_blank">
+         GitHub ↗
+        </a>
+       </div>
+      </div>
+     </article>
+    </div>
+    <a class="all-work" href="https://github.com/dhrutpatel277-bot?tab=repositories" rel="noopener noreferrer" target="_blank">
+     <span>
+      More experiments live on GitHub.
+     </span>
+     <span>
+      Explore the code ↗
+     </span>
+    </a>
+   </section>
+   <!-- A little background about my studies, interests, and the tools I use. -->
+   <section class="about section" id="about">
+    <span class="eyebrow">
+     02 / THE PERSON BEHIND THE CODE
+    </span>
+    <div class="about-grid">
+     <h2>
+      Curiosity is
+      <br/>
+      my
+      <em>
+       default
+       <br/>
+       setting.
+      </em>
+     </h2>
+     <div class="about-copy">
+      <p class="large">
+       I like the moment when something confusing finally clicks. Then I want to build with it.
+      </p>
+      <p>
+       I’m studying Computer Science with an Artificial Intelligence emphasis at the University of Wisconsin–Green Bay. My work spans React interfaces, backend APIs, Java applications, and Python tools.
+      </p>
+      <p>
+       I’ve also explored AI depth estimation through research at UW–Green Bay. I’m interested in how software works beneath the surface—and how to make it feel simple for the person using it.
+      </p>
+      <div class="about-stats">
+       <div>
+        <strong>
+         3.5
+        </strong>
+        <span>
+         GPA / 4.0
+        </span>
+       </div>
+       <div>
+        <strong>
+         2028
+        </strong>
+        <span>
+         EXPECTED / MAY
+        </span>
+       </div>
+       <div>
+        <strong>
+         ✳
+        </strong>
+        <span>
+         PHOENIX ACADEMIC
+         <br/>
+         SCHOLARSHIP
+        </span>
+       </div>
+      </div>
+      <a class="text-link" href="Dhrut-Patel-Resume.pdf" rel="noopener" target="_blank">
+       Read my résumé ↗
+      </a>
+     </div>
+    </div>
+    <div class="toolkit">
+     <span class="eyebrow">
+      TOOLS I BUILD WITH
+     </span>
+     <p>
+      JavaScript
+      <b>
+       React
+      </b>
+      Java
+      <b>
+       Python
+      </b>
+      Node.js
+      <b>
+       SQL
+      </b>
+      Express
+      <b>
+       C++
+      </b>
+      C#
+      <b>
+       Git
+      </b>
+      HTML / CSS
+     </p>
+    </div>
+   </section>
+   <!-- My development experience and the subjects I am studying this semester. -->
+   <section class="journey section" id="experience">
+    <div class="section-head">
+     <span class="eyebrow">
+      03 / EXPERIENCE
+     </span>
+     <h2>
+      Learning by
+      <br/>
+      <em>
+       doing the work.
+      </em>
+     </h2>
+    </div>
+    <article class="job">
+     <span class="job-date">
+      SEP 2025 — JAN 2026
+     </span>
+     <div>
+      <h3>
+       SaiKet System
+      </h3>
+      <span>
+       Software Developer / Remote
+      </span>
+      <p>
+       Developed application features, diagnosed defects, and contributed to testing and peer code reviews using Java, Python, C++, and C#.
+      </p>
+     </div>
+     <span class="job-index">
+      01
+     </span>
+    </article>
+    <article class="job">
+     <span class="job-date">
+      MAY — SEP 2025
+     </span>
+     <div>
+      <h3>
+       Depplesoft
+      </h3>
+      <span>
+       Software Developer Intern / Remote
+      </span>
+      <p>
+       Contributed to business applications, SQL-backed functionality, debugging, quality assurance, and technical documentation in a collaborative development workflow.
+      </p>
+     </div>
+     <span class="job-index">
+      02
+     </span>
+    </article>
+    <div class="learning">
+     <span>
+      ON MY DESK THIS SEMESTER
+     </span>
+     <p>
+      Computer Architecture and Organization
+      <br/>
+      Database Design and Management
+     </p>
+    </div>
+   </section>
+   <!-- Give visitors a straightforward way to email me or copy my address. -->
+   <section class="contact section" id="contact">
+    <div class="contact-meta">
+     <span class="eyebrow">
+      04 / THE NEXT CHAPTER
+     </span>
+     <span>
+      OPEN TO SOFTWARE ENGINEERING INTERNSHIPS
+     </span>
+    </div>
+    <h2>
+     LET’S BUILD
+     <br/>
+     <a href="mailto:DhrutPatel277@gmail.com">
+      SOMETHING
+      <span>
+       ↗
+      </span>
+     </a>
+     <em>
+      worth opening.
+     </em>
+    </h2>
+    <div class="contact-bottom">
+     <a href="mailto:DhrutPatel277@gmail.com">
+      DhrutPatel277@gmail.com ↗
+     </a>
+     <button id="copy-email">
+      Copy email +
+     </button>
+    </div>
+   </section>
+  </main>
+  <!-- Social links and a quick route back to the top. -->
+  <footer>
+   <a class="wordmark" href="#home">
+    dhrut
+    <span>
+     .
+    </span>
+   </a>
+   <span>
+    BUILT WITH CURIOSITY.
+    <span id="year">
+    </span>
+   </span>
+   <div>
+    <a href="https://github.com/dhrutpatel277-bot" rel="noopener noreferrer" target="_blank">
+     GitHub ↗
+    </a>
+    <a href="https://www.linkedin.com/in/dhrut-patel-12668b32b" rel="noopener noreferrer" target="_blank">
+     LinkedIn ↗
+    </a>
+    <a href="#home">
+     Back to top ↑
+    </a>
+   </div>
+  </footer>
+  <!-- One reusable dialog displays the notes for whichever project a visitor selects. -->
+  <dialog id="project-dialog">
+   <button aria-label="Close project details" class="close">
+    ×
+   </button>
+   <span class="eyebrow">
+    PROJECT NOTES
+   </span>
+   <h2 id="dialog-title">
+   </h2>
+   <p id="dialog-intro">
+   </p>
+   <h3>
+    What I built
+   </h3>
+   <ul id="dialog-list">
+   </ul>
+   <p class="dialog-note">
+    The preview artwork on this portfolio is an illustrative presentation of the project. Source code and linked live demos show the actual implementation.
+   </p>
+  </dialog>
+  <!-- This message confirms that the email address was copied. Screen readers announce it too. -->
+  <div aria-live="polite" id="toast" role="status">
+  </div>
+  <script>
+'use strict';
+{
+    // Run the intro independently so an unrelated feature cannot prevent it from starting.
+    const introPanel = document.querySelector('#loader');
+    const introCounter = document.querySelector('#loader-count');
+    const introFill = document.querySelector('#loader-fill');
+    let introFrame;
+    let introFinishTimer;
+    let introHideTimer;
+    let introRunning = false;
+
+    function closeIntro() {
+        if (!introRunning) return;
+        introRunning = false;
+        cancelAnimationFrame(introFrame);
+        clearTimeout(introFinishTimer);
+        introPanel.classList.add('finished');
+        document.body.classList.remove('intro-playing');
+        document.body.classList.add('intro-complete');
+        introHideTimer = setTimeout(() => {
+            introPanel.hidden = true;
+            introPanel.classList.remove('active');
+        }, 1000);
+    }
+
+    function playIntro() {
+        clearTimeout(introHideTimer);
+        clearTimeout(introFinishTimer);
+        cancelAnimationFrame(introFrame);
+        introRunning = true;
+        introPanel.hidden = false;
+        introPanel.classList.remove('finished');
+        introPanel.classList.add('active');
+        document.body.classList.remove('intro-complete');
+        document.body.classList.add('intro-playing');
+        introCounter.textContent = '000';
+        introFill.style.width = '0%';
+        const startedAt = performance.now();
+        // Reduced motion keeps a brief static introduction instead of movement.
+        const prefersLessMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const duration = prefersLessMotion ? 650 : 3600;
+
+        function updateIntro(now) {
+            if (!introRunning) return;
+            const elapsed = Math.min((now - startedAt) / duration, 1);
+            const percentage = Math.round(elapsed * 100);
+            introCounter.textContent = String(percentage).padStart(3, '0');
+            introFill.style.width = percentage + '%';
+            if (elapsed < 1) introFrame = requestAnimationFrame(updateIntro);
+            else introFinishTimer = setTimeout(closeIntro, 400);
+        }
+        introFrame = requestAnimationFrame(updateIntro);
+        // Always release the page, even if the browser pauses animation frames.
+        introFinishTimer = setTimeout(closeIntro, 6000);
+    }
+
+    document.querySelector('#skip-intro').addEventListener('click', closeIntro);
+    document.querySelector('#replay-intro').addEventListener('click', playIntro);
+    playIntro();
+
+}
+
+// Keep the footer year current without needing a manual edit.
+document.querySelector('#year').textContent = new Date().getFullYear();
+// Read the visitor’s motion preference before starting any animations.
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+// Project notes are stored together so the dialog content is easy to update.
+const details = {
+    tanning: {
+        title: 'Tanning Tropical',
+        intro: 'A customer-facing business website, from interface design to production deployment.',
+        items: ['Designed the presentation of salon services, pricing, branding, and contact information.', 'Built the frontend with React, JavaScript, HTML, CSS, and Vite.', 'Adapted the layouts for desktop and mobile screens.', 'Deployed the website to Vercel and refined responsiveness and performance.']
+    },
+    chat: {
+        title: 'AI Chat Application',
+        intro: 'An exploration of conversational interfaces and the backend services that make them work.',
+        items: ['Built a JavaScript interface for entering messages and displaying AI responses.', 'Used Node.js and Express to handle requests and connect to an external AI API.', 'Separated interface behavior from backend API integration.', 'Debugged request-and-response behavior and tracked development with Git.']
+    },
+    student: {
+        title: 'Student Management System',
+        intro: 'A practical Java application for organizing and maintaining student records.',
+        items: ['Implemented creation, viewing, updates, and deletion of student records.', 'Added GPA management, searching, and sorting through a menu-driven interface.', 'Used modular, object-oriented code and input validation.', 'Saved records to persistent files so data remains available between sessions.']
+    },
+    expense: {
+        title: 'Personal Expense Manager',
+        intro: 'A Python tool that makes personal spending easier to record and understand.',
+        items: ['Built workflows for adding, viewing, and analyzing expenses.', 'Organized transactions into categories for spending review.', 'Used CSV files to save and reload transaction history.', 'Generated category totals, reports, and automated summaries.']
+    }
+};
+// Reuse one dialog instead of building a separate popup for every project.
+const dialog = document.querySelector('#project-dialog');
+document.querySelectorAll('[data-detail]').forEach(button => button.addEventListener('click', () => {
+    const data = details[button.dataset.detail];
+    document.querySelector('#dialog-title').textContent = data.title;
+    document.querySelector('#dialog-intro').textContent = data.intro;
+    document.querySelector('#dialog-list').replaceChildren(...data.items.map(text => {
+        const li = document.createElement('li');
+        li.textContent = text;
+        return li
+    }));
+    dialog.showModal()
+}));
+// The close button, Escape key, and a click outside the panel all dismiss the dialog.
+dialog.querySelector('.close').addEventListener('click', () => dialog.close());
+dialog.addEventListener('click', event => {
+    if (event.target === dialog) {
+        const r = dialog.getBoundingClientRect();
+        if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) dialog.close()
+    }
+});
+// Copy the email address and show a brief confirmation. If copying fails, open an email draft.
+let toastTimer;
+document.querySelector('#copy-email').addEventListener('click', async () => {
+    try {
+        await navigator.clipboard.writeText('DhrutPatel277@gmail.com');
+        const toast = document.querySelector('#toast');
+        toast.textContent = 'Email copied. Let’s make something happen.';
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toast.classList.remove('show'), 2600)
+    } catch {
+        window.location.href = 'mailto:DhrutPatel277@gmail.com'
+    }
+});
+// The thin bar at the top shows how far the visitor has scrolled.
+function progress() {
+    const range = document.documentElement.scrollHeight - innerHeight;
+    document.querySelector('.progress').style.width = (range > 0 ? scrollY / range * 100 : 0) + '%'
+}
+addEventListener('scroll', progress, {
+    passive: true
+});
+addEventListener('resize', progress);
+progress();
+// Reveal project artwork as it enters the screen. Content stays visible if this feature is unavailable.
+if (!reduced && 'IntersectionObserver' in window) {
+    document.body.classList.add('motion-ready');
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.remove('offscreen');
+            observer.unobserve(entry.target)
+        }
+    }), {
+        threshold: .08
+    });
+    document.querySelectorAll('.project-visual').forEach(el => {
+        el.classList.add('offscreen');
+        observer.observe(el)
+    })
+}
+// This hero uses moving light and typography instead of the previous canvas sculpture.
+const nameStage = document.querySelector('.name-stage');
+const nameLetters = [...document.querySelectorAll('.kinetic-name i')];
+const heroSection = document.querySelector('.hero');
+let nameFrame = 0;
+let heroIsVisible = true;
+
+// Pause the ongoing hero effect once it leaves the screen.
+if ('IntersectionObserver' in window) {
+    new IntersectionObserver(entries => {
+        heroIsVisible = entries[0].isIntersecting;
+    }).observe(heroSection);
+}
+
+function animateName(time) {
+    if (heroIsVisible && !document.hidden) {
+        nameLetters.forEach((letter, index) => {
+            const wave = Math.sin(time / 1100 + index * 0.85);
+            letter.style.fontWeight = String(Math.round(500 + wave * 300));
+            letter.style.transform = `scaleX(${1 + wave * 0.13})`;
+            letter.style.opacity = String(0.65 + (wave + 1) * 0.175);
+        });
+    }
+    nameFrame = requestAnimationFrame(animateName);
+}
+if (!reduced) requestAnimationFrame(animateName);
+
+// Move the red glow gently toward the mouse. Touch devices keep the default position.
+heroSection.addEventListener('pointermove', event => {
+    if (reduced || event.pointerType === 'touch') return;
+    const bounds = heroSection.getBoundingClientRect();
+    const x = (event.clientX - bounds.left) / bounds.width;
+    const y = (event.clientY - bounds.top) / bounds.height;
+    heroSection.style.setProperty('--glow-x', `${x * 100}%`);
+    heroSection.style.setProperty('--glow-y', `${y * 100}%`);
+});
+
+// Tilt each project panel a few degrees as visitors explore its surface.
+document.querySelectorAll('.project-visual').forEach(panel => {
+    panel.addEventListener('pointermove', event => {
+        if (reduced || event.pointerType === 'touch') return;
+        const bounds = panel.getBoundingClientRect();
+        const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+        const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+        panel.style.transform = `perspective(1000px) rotateX(${-y * 4}deg) rotateY(${x * 4}deg)`;
+    });
+    panel.addEventListener('pointerleave', () => {
+        panel.style.transform = '';
+    });
+});
+</script>
+ </body>
+</html>
